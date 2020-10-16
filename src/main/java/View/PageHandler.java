@@ -69,34 +69,23 @@ public class PageHandler {
      * Displays the page where the user has the option to create a new member.
      */
     private void showCreateNewMemeberPage() {
-        // Create separation from the top so we don't get a clustered view on the
-        // console application.
         newPageSpace();
-
 
         boolean done = false;
         System.out.println("--- Create a new Member ---");
         StringBuilder tempName = new StringBuilder();
         StringBuilder tempPersonalNumber = new StringBuilder();
         while(!done) {
-            // Prompt the user for a valid name input
             promptForValidName(tempName);
-
-            // Prompt the user for a valid personal number
             promptForValidPersonalNumber(tempPersonalNumber);
-
             System.out.println("\n\nAdd another member y/n?");
             if (!scanner.nextLine().equalsIgnoreCase("y")) {
                 done = true;
             }
         }
-
         boatClub.addMemberToClub(tempName.toString(),tempPersonalNumber.toString());
-        // Write the new changes to file
-
         jsonWriter.writeBoatClubToJson();
 
-        // return back to main menu
         newPageSpace();
         showHomepage();
     }
@@ -210,6 +199,8 @@ public class PageHandler {
         System.out.println("ID: " + member.getUniqueID());
         System.out.println("Boats: " + member.getNumberOfBoatsOwned());
 
+        newPageSpace();
+        showHomepage();
     }
 
 
@@ -399,7 +390,7 @@ public class PageHandler {
         }
     }
 
-    private void promptForValidName(StringBuilder name){
+    private void  promptForValidName(StringBuilder name){
         do {
             System.out.print("Enter the name of the member: ");
             name.setLength(0); // reset for every iteration

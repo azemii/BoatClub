@@ -2,7 +2,7 @@ package View;
 
 import Model.BoatClub;
 
-public class InputChecker {
+public class  InputChecker {
 
 
 

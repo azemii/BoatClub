@@ -63,7 +63,7 @@ public class BoatClub {
         }
     }
 
-    public Member getMemberWithName(String name) {
+    public Member  getMemberWithName(String name) {
         Iterator<Member> iterator = members.iterator();
         Member returnMember = null;
         while(iterator.hasNext()){
